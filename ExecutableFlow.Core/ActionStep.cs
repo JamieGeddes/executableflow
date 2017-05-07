@@ -1,21 +1,21 @@
 ﻿namespace ExecutableFlow.Core
 {
-    public class ActionStep<T> : IExecutableStep<T>
+    public class ActionStep<T> : IActionStep<T>
     {
         private readonly IExecutableAction<T> action;
-        private readonly IExecutableStep<T> nextStep;
 
-        public ActionStep(IExecutableAction<T> action, IExecutableStep<T> nextStep)
+        public ActionStep(IExecutableAction<T> action)
         {
             this.action = action;
-            this.nextStep = nextStep;
         }
 
         public void Execute(T context)
         {
             action.Execute(context);
 
-            if (nextStep != null) nextStep.Execute(context);
+            NextStep?.Execute(context);
         }
+
+        public IExecutableStep<T> NextStep { get; set; }
     }
 }

@@ -11,7 +11,7 @@
         {
             var action = Substitute.For<IExecutableAction<TestContext>>();
 
-            var step = new ActionStep<TestContext>(action, null);
+            var step = new ActionStep<TestContext>(action);
 
             var context = new TestContext();
 

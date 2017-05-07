@@ -1,28 +1,27 @@
 ﻿namespace ExecutableFlow.Core
 {
-    public class ConditionalStep<T> : IExecutableStep<T>
+    public class ConditionalStep<T> : IConditionalStep<T>
     {
         private readonly ICondition<T> condition;
-        private readonly IExecutableStep<T> positiveStep;
-        private readonly IExecutableStep<T> negativeStep;
 
-        public ConditionalStep(ICondition<T> condition, IExecutableStep<T> positiveStep, IExecutableStep<T> negativeStep)
+        public ConditionalStep(ICondition<T> condition)
         {
             this.condition = condition;
-            this.positiveStep = positiveStep;
-            this.negativeStep = negativeStep;
         }
 
         public void Execute(T context)
         {
             if(condition.Evaluate(context))
             {
-                positiveStep?.Execute(context);
+                PositiveStep?.Execute(context);
             }
             else
             {
-                negativeStep?.Execute(context);
+                NegativeStep?.Execute(context);
             }
         }
+
+        public IExecutableStep<T> PositiveStep { get; set; }
+        public IExecutableStep<T> NegativeStep { get; set; }
     }
 }

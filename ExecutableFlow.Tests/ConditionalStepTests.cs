@@ -16,7 +16,11 @@
             var positiveStep = Substitute.For<IExecutableStep<TestContext>>();
             var negativeStep = Substitute.For<IExecutableStep<TestContext>>();
 
-            var step = new ConditionalStep<TestContext>(condition, positiveStep, negativeStep);
+            var step = new ConditionalStep<TestContext>(condition)
+            {
+                PositiveStep = positiveStep,
+                NegativeStep = negativeStep
+            };
 
             step.Execute(context);
 
@@ -34,7 +38,11 @@
             var positiveStep = Substitute.For<IExecutableStep<TestContext>>();
             var negativeStep = Substitute.For<IExecutableStep<TestContext>>();
 
-            var step = new ConditionalStep<TestContext>(condition, positiveStep, negativeStep);
+            var step = new ConditionalStep<TestContext>(condition)
+            {
+                PositiveStep = positiveStep,
+                NegativeStep = negativeStep
+            };
 
             step.Execute(context);
 

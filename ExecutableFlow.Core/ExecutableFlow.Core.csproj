@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="ConditionalStep.cs" />
     <Compile Include="ExecutionFlow.cs" />
+    <Compile Include="IActionStep.cs" />
     <Compile Include="ICondition.cs" />
+    <Compile Include="IConditionalStep.cs" />
     <Compile Include="IExecutableStep.cs" />
     <Compile Include="IExecutableAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
