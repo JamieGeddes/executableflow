@@ -1,6 +1,6 @@
 ﻿namespace ExecutableFlow.Core
 {
-    public interface IExecutableStep<T>
+    public interface IExecutableAction<T>
     {
         void Execute(T context);
     }

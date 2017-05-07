@@ -40,11 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConditionalStep.cs" />
     <Compile Include="ExecutionFlow.cs" />
-    <Compile Include="IConditionalStep.cs" />
+    <Compile Include="ICondition.cs" />
     <Compile Include="IExecutableStep.cs" />
-    <Compile Include="ITaskStep.cs" />
+    <Compile Include="IExecutableAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ActionStep.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
